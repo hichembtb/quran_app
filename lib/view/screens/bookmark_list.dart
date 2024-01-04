@@ -25,7 +25,10 @@ class BookMarkList extends GetView<HomeController> {
           valueListenable: Hive.box<BookMark>(kBookMarkBox).listenable(),
           builder: (context, Box<BookMark> box, child) {
             if (box.isNotEmpty) {
-              return ListView.builder(
+              return GridView.builder(
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                ),
                 itemCount: box.length,
                 itemBuilder: (context, index) {
                   QuranModel soura = quranMap[box.getAt(index)!.surahIndex!]!;

@@ -16,7 +16,10 @@ class QuranList extends GetView<HomeController> {
       appBar: kAppBar,
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-        child: ListView.builder(
+        child: GridView.builder(
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+          ),
           itemCount: quranMap.length,
           itemBuilder: (context, index) {
             QuranModel soura = quranMap[index + 1]!;

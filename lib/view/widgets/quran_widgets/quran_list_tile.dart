@@ -23,44 +23,55 @@ class QuranListTile extends StatelessWidget {
         child: Container(
           height: SizeConfig.screenHeight! * .065,
           decoration: BoxDecoration(
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.grey.withOpacity(0.5),
-                  spreadRadius: 0,
-                  blurRadius: 4,
-                  offset: const Offset(1.5, 3), // changes position of shadow
-                ),
-              ],
-              image: const DecorationImage(
-                  image: AssetImage(kDashboard), fit: BoxFit.fill),
-              borderRadius: BorderRadius.circular(25)),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey.withOpacity(0.5),
+                spreadRadius: 0,
+                blurRadius: 4,
+                offset: const Offset(1.5, 3), // changes position of shadow
+              ),
+            ],
+            image: const DecorationImage(
+              image: AssetImage(kDashboard),
+              fit: BoxFit.fill,
+            ),
+            borderRadius: BorderRadius.circular(25),
+          ),
           child: Container(
             decoration: BoxDecoration(
-              gradient: LinearGradient(colors: [
-                AppColor.kPrimaryColor.withOpacity(0.7),
-                AppColor.kSecondaryColor.withOpacity(0.7)
-              ]),
+              gradient: LinearGradient(
+                colors: [
+                  AppColor.kPrimaryColor.withOpacity(0.7),
+                  AppColor.kSecondaryColor.withOpacity(0.7)
+                ],
+              ),
               borderRadius: BorderRadius.circular(15),
             ),
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  FittedBox(
-                    child: Text(
-                      frName,
-                      maxLines: 1,
-                      textAlign: TextAlign.left,
-                      style: titleStyle("", 18),
-                    ),
-                  ),
                   Flexible(
                     child: Text(
                       arName,
                       maxLines: 1,
                       textAlign: TextAlign.right,
-                      style: titleStyle("arName", null),
+                      style:
+                          titleStyle("arName", SizeConfig.screenWidth! * .055),
+                    ),
+                  ),
+                  FittedBox(
+                    child: Padding(
+                      padding:
+                          EdgeInsets.only(right: SizeConfig.screenWidth! * .2),
+                      child: Text(
+                        frName.toUpperCase(),
+                        maxLines: 1,
+                        textAlign: TextAlign.left,
+                        style: titleStyle("", SizeConfig.screenWidth! * .045),
+                      ),
                     ),
                   ),
                 ],

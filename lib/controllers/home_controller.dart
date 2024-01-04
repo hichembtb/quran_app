@@ -44,11 +44,14 @@ class HomeController extends GetxController {
   }
 
   openPdf(int sourahIndex) {
-    Get.toNamed(AppRoute.readsoura, arguments: {
-      "file": file,
-      "name": name,
-      "sourahIndex": sourahIndex,
-    });
+    Get.toNamed(
+      AppRoute.readsoura,
+      arguments: {
+        "file": file,
+        "name": name,
+        "sourahIndex": sourahIndex,
+      },
+    );
   }
 
   void navTo(String route) {

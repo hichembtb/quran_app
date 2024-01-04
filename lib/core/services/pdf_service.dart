@@ -15,12 +15,11 @@ class PdfService {
     Reference refPDF = FirebaseStorage.instance.ref("quran").child(url);
 
     try {
-      await refPDF.getData();
       bytes = await refPDF.getData();
 
       return _storeFile(url, bytes!);
-    } on PlatformException catch (e) {
-      if (e.details['code'] == 'object-not-found') {
+    } on FirebaseException catch (e) {
+      if (e.code == 'object-not-found') {
         Get.back();
         Get.defaultDialog(
           title: 'Soura Not avail',

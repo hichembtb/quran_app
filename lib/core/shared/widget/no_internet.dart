@@ -16,8 +16,9 @@ class NoInternet extends StatelessWidget {
           child: Text(
             'Please Check Your Internet',
             style: TextStyle(
-                fontSize: SizeConfig.defaultSize! * 2,
-                fontWeight: FontWeight.bold),
+              fontSize: SizeConfig.defaultSize! * 2,
+              fontWeight: FontWeight.bold,
+            ),
           ),
         ),
       ),
